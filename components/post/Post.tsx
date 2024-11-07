@@ -2,6 +2,7 @@ import {
   HeaderModule,
   ParagraphModule,
   ImageModule,
+  QuoteModule,
 } from "@/components/post/modules";
 
 export default function Post() {
@@ -45,6 +46,40 @@ export default function Post() {
       postModules: [
         {
           module: HeaderModule,
+          data: "The Philosophical Idea of Love",
+          moduleProps: {
+            position: "left",
+          },
+        },
+        {
+          module: ParagraphModule,
+          data: "Love is a philosophical concept that has been debated for centuries. It is often defined as a feeling of deep affection and attachment, but it can also be seen as a force that drives human behavior.",
+          moduleProps: {
+            position: "left",
+          },
+        },
+        {
+          module: QuoteModule,
+          data: "'At the touch of love everyone becomes a poet.'",
+          moduleProps: {
+            position: "left",
+            author: "Plato",
+          },
+        },
+        {
+          module: ParagraphModule,
+          data: "Aristotle believed that 'Love is composed of a single soul inhabiting two bodies.' And that is why we are here. To find our soulmate.",
+          moduleProps: {
+            position: "left",
+          },
+        },
+      ],
+    },
+    {
+      postId: 3,
+      postModules: [
+        {
+          module: HeaderModule,
           data: "Hay Fields in the Netherlands",
           moduleProps: {
             position: "left",
@@ -68,7 +103,7 @@ export default function Post() {
       ],
     },
     {
-      postId: 3,
+      postId: 4,
       postModules: [
         {
           module: HeaderModule,
@@ -95,9 +130,9 @@ export default function Post() {
         <div className="w-full bg-gray-100 rounded-lg p-4 mb-10" key={i}>
           {post.postModules.map((module, i) => {
             return module.module({
-              ...module.moduleProps,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              ...(module.moduleProps as any),
               data: module.data,
-              alt: module.moduleProps.alt || "",
               postLength: post.postModules.length,
               postIndex: i,
             });

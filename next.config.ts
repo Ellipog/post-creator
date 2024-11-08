@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*",
       },
+      {
+        protocol: "https",
+        hostname: "www.google.com",
+        pathname: "/s2/**",
+      },
     ],
     dangerouslyAllowSVG: true,
   },

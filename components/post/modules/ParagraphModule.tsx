@@ -1,3 +1,7 @@
+"use client";
+
+import { AsyncLinkFormatter } from "@/components/utils/asyncLinkFormatter";
+
 export function ParagraphModule({
   data,
   position,
@@ -26,7 +30,7 @@ export function ParagraphModule({
       className={`text-lg w-full ${positionClass} ${margin}`}
       key={postIndex}
     >
-      {data}
+      <AsyncLinkFormatter text={data} />
     </div>
   );
 }

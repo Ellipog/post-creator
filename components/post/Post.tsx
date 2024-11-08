@@ -1,8 +1,11 @@
+"use client";
+
 import {
   HeaderModule,
   ParagraphModule,
   ImageModule,
   QuoteModule,
+  CodeBlockModule,
 } from "@/components/post/modules";
 
 export default function Post() {
@@ -26,7 +29,7 @@ export default function Post() {
         },
         {
           module: ImageModule,
-          data: "https://picsum.photos/700/400",
+          data: "https://picsum.photos/1920/1080",
           moduleProps: {
             position: "left",
             alt: "Picture of a massive hot spring in Iceland, with a clear blue sky and a few clouds.",
@@ -34,9 +37,9 @@ export default function Post() {
         },
         {
           module: ParagraphModule,
-          data: "The Blue Lagoon, Iceland's most famous hot spring, gets its distinctive milky-blue color from silica and sulfur compounds in the water.",
+          data: "https://www.youtube.com/watch?v=ICEzGr7x3t4 The Blue Lagoon, Iceland's most famous hot spring, gets its distinctive milky-blue color from silica and sulfur compounds in the water.",
           moduleProps: {
-            position: "right",
+            position: "left",
           },
         },
       ],
@@ -89,7 +92,7 @@ export default function Post() {
           module: ImageModule,
           data: "https://picsum.photos/1200/700",
           moduleProps: {
-            position: "right",
+            position: "left",
             alt: "Picture of hay fields in the Netherlands.",
           },
         },
@@ -107,17 +110,17 @@ export default function Post() {
       postModules: [
         {
           module: HeaderModule,
-          data: "The perfect road trip van",
+          data: "How to make cool code in TypeScript",
           moduleProps: {
             position: "left",
           },
         },
         {
-          module: ImageModule,
-          data: "https://picsum.photos/1000/600",
+          module: CodeBlockModule,
+          data: "const [copied, setCopied] = useState(false);\nconst [isClient, setIsClient] = useState(false);\nconst codeRef = useRef<HTMLElement>(null);\n\nuseEffect(() => {\n  setIsClient(true);\n}, []);\n\nuseEffect(() => {\n  if (isClient && codeRef.current) {\n    Prism.highlightElement(codeRef.current);\n  }\n}, [isClient, data]);",
           moduleProps: {
-            position: "right",
-            alt: "Picture of a blue van viewed from the side.",
+            language: "typescript",
+            position: "left",
           },
         },
       ],

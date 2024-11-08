@@ -173,7 +173,7 @@ function SortableModule({
     <div
       ref={setNodeRef}
       style={style}
-      className={`flex items-start gap-2 rounded-md transition-all duration-200 ${
+      className={`flex items-start gap-2 rounded-md transition-colors duration-200 ${
         isHovered ? "bg-gray-300/30" : ""
       }`}
     >

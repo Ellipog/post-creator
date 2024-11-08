@@ -4,12 +4,14 @@ export function QuoteModule({
   author,
   postLength,
   postIndex,
+  editing = false,
 }: {
   data: string;
   position: string;
   author: string;
   postLength: number;
   postIndex: number;
+  editing: boolean;
 }) {
   const positionClass =
     position === "left"
@@ -34,7 +36,9 @@ export function QuoteModule({
 
   return (
     <div
-      className={`text-lg w-full flex flex-col justify-center ${positionClass} ${margin}`}
+      className={`text-lg w-full flex flex-col justify-center ${positionClass} ${
+        !editing && margin
+      }`}
       key={postIndex}
     >
       <div

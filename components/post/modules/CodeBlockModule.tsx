@@ -14,21 +14,21 @@ import "prismjs/components/prism-bash";
 import { Check, Copy } from "lucide-react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-interface CodeBlockModuleProps {
-  data: string;
-  language: string;
-  position: string;
-  postLength: number;
-  postIndex: number;
-}
-
 export function CodeBlockModule({
   data,
   language,
   position,
   postLength,
   postIndex,
-}: CodeBlockModuleProps) {
+  editing = false,
+}: {
+  data: string;
+  language: string;
+  position: string;
+  postLength: number;
+  postIndex: number;
+  editing: boolean;
+}) {
   const [copied, setCopied] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const codeRef = useRef<HTMLElement>(null);
@@ -61,7 +61,10 @@ export function CodeBlockModule({
   };
 
   return (
-    <div className={`w-full flex ${positionClass} ${margin}`} key={postIndex}>
+    <div
+      className={`w-full flex ${positionClass} ${!editing && margin}`}
+      key={postIndex}
+    >
       <div className="w-full max-w-[600px] rounded-lg overflow-hidden bg-[#1E1E1E] shadow-lg">
         <div className="relative group">
           <pre className="!m-0 !bg-transparent p-4" suppressHydrationWarning>

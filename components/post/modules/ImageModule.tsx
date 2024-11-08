@@ -6,12 +6,14 @@ export function ImageModule({
   alt,
   postLength,
   postIndex,
+  editing = false,
 }: {
   data: string;
   position: string;
   alt: string;
   postLength: number;
   postIndex: number;
+  editing: boolean;
 }) {
   const positionClass =
     position === "left"
@@ -27,7 +29,7 @@ export function ImageModule({
 
   return (
     <div
-      className={`${positionClass} flex group relative ${margin}`}
+      className={`${positionClass} flex group relative ${!editing && margin}`}
       key={postIndex}
     >
       <div className="relative w-fit">

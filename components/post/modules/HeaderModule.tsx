@@ -3,11 +3,13 @@ export function HeaderModule({
   position,
   postLength,
   postIndex,
+  editing = false,
 }: {
   data: string;
   position: string;
   postLength: number;
   postIndex: number;
+  editing: boolean;
 }) {
   const positionClass =
     position === "left"
@@ -23,7 +25,9 @@ export function HeaderModule({
 
   return (
     <div
-      className={`text-2xl font-bold w-full ${positionClass} ${margin}`}
+      className={`text-2xl font-bold w-full ${positionClass} ${
+        !editing && margin
+      }`}
       key={postIndex}
     >
       {data}

@@ -67,7 +67,10 @@ export function CodeBlockModule({
     >
       <div className="w-full max-w-[600px] rounded-lg overflow-hidden bg-[#1E1E1E] shadow-lg">
         <div className="relative group">
-          <pre className="!m-0 !bg-transparent p-4" suppressHydrationWarning>
+          <pre
+            className="!m-0 !bg-transparent p-4 max-h-[400px] overflow-y-auto"
+            suppressHydrationWarning
+          >
             <code
               ref={codeRef}
               className={`block language-${language}`}

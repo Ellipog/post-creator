@@ -53,18 +53,33 @@ export function ModuleConfigPopup({
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Content
-            </label>
-            <textarea
-              value={data}
-              onChange={(e) => setData(e.target.value)}
-              className="w-full p-2 border rounded-md"
-              rows={4}
-              required
-            />
-          </div>
+          {moduleType !== "image" ? (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Content
+              </label>
+              <textarea
+                value={data}
+                onChange={(e) => setData(e.target.value)}
+                className="w-full p-2 border rounded-md"
+                rows={4}
+                required
+              />
+            </div>
+          ) : (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Image Link
+              </label>
+              {/* Input field for link for the image */}
+              <input
+                type="text"
+                value={data}
+                onChange={(e) => setData(e.target.value)}
+                className="w-full p-2 border rounded-md"
+              />
+            </div>
+          )}
 
           {moduleType !== "code" && (
             <div>
